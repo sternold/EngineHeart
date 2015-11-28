@@ -14,6 +14,7 @@ namespace EngineHeartRobotGenerator
         private List<EhAttributes> Attributes;
         private List<EhFeatures> Features;
         private List<EhDefects> Defects;
+        private int[] OtherFactors;
 
         //OTHER FACTORS?
 
@@ -24,14 +25,14 @@ namespace EngineHeartRobotGenerator
 
             this.Attributes = new List<EhAttributes> { new EhAttributes("RealityCom"), new EhAttributes("HumanCom"), new EhAttributes("DigiCon"), new EhAttributes("MechaniCon"),
             new EhAttributes("Dexterity"), new EhAttributes("Mobility"), new EhAttributes("Perception"), new EhAttributes("Reflexes"), new EhAttributes("Strength"),
-            new EhAttributes("Durability"), new EhAttributes("Buffer"), new EhAttributes("Size"), new EhAttributes("Power"), new EhAttributes("Interaction Pool", true),
-            new EhAttributes("TN to be Struck", true), new EhAttributes("Damage from Strike", true), new EhAttributes("Initiative", true), new EhAttributes("Speed", true),
-            new EhAttributes("OS Threshold", true), new EhAttributes("Damage Threshold", true)};   
+            new EhAttributes("Durability"), new EhAttributes("Buffer"), new EhAttributes("Size"), new EhAttributes("Power")};   
                  
             this.Features = new List<EhFeatures> { };
             this.Defects = new List<EhDefects> { };
 
             this.Points = RollRobot(this.Points);
+
+            this.OtherFactors = new int[] { };
         }
 
         //methods

@@ -12,11 +12,10 @@ namespace EngineHeartRobotGenerator
         private string Name;
         private int Value;
         private int Cost;
-        private bool IsOtherFactor;
         private static Random Dice = new Random();
 
         //Constructor
-        public EhAttributes(string name, bool OF = false)
+        public EhAttributes(string name)
         {
             this.Name = name;
             this.Value = 0;
@@ -42,11 +41,8 @@ namespace EngineHeartRobotGenerator
 
         public void Roll()
         {
-            if (!this.IsOtherFactor)
-            {
                 this.Value = Dice.Next(1, 6);
-                CalcCost();
-            }           
+                CalcCost();          
         }
 
         private void CalcCost()
@@ -57,17 +53,6 @@ namespace EngineHeartRobotGenerator
                 x += i;
             }
             this.Cost = x*-1;
-        }
-
-        //Other Factors
-        public bool OtherFactor()
-        {
-            return this.IsOtherFactor;
-        }
-
-        public void SetValue(int x)
-        {
-            this.Value = x;
         }
     }
 }

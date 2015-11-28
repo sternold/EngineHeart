@@ -17,7 +17,7 @@ namespace EngineHeartRobotGenerator
         public MainForm()
         {
             InitializeComponent();
-            LabelsAttributes = new List<Label> { Lbl1, Lbl2, Lbl3, Lbl4, Lbl5, Lbl6, Lbl7, Lbl8, Lbl9, Lbl10, Lbl11, Lbl12, Lbl13, LblOF1, LblOF2, LblOF3, LblOF4, LblOF5, LblOF6, LblOF7 };                     
+            LabelsAttributes = new List<Label> { Lbl1, Lbl2, Lbl3, Lbl4, Lbl5, Lbl6, Lbl7, Lbl8, Lbl9, Lbl10, Lbl11, Lbl12, Lbl13 };                     
         }
 
         private void BtnGen_Click(object sender, EventArgs e)
