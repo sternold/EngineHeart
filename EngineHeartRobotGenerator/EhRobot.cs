@@ -14,7 +14,7 @@ namespace EngineHeartRobotGenerator
         private List<EhAttributes> Attributes;
         private List<EhFeatures> Features;
         private List<EhDefects> Defects;
-        private int[] OtherFactors;
+        private int[] OtherFactorsq;
 
         //OTHER FACTORS?
 
