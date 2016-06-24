@@ -27,6 +27,7 @@ namespace EngineHeartRobotGenerator
         {
             CurrentRobot =  RoboControl.CreateRobot(TbName.Text, TbPurpose.Text, 100);
             LbAttributes.DataSource = CurrentRobot.Attributes;
+            LbFeatures.DataSource = CurrentRobot.Parts.FindAll(y => y is Feature);
         }
     }
 }

@@ -6,17 +6,13 @@ using System.Threading.Tasks;
 
 namespace EngineHeart.Data
 {
-    public class Defect : IPart
+    public class Defect : Part
     {
-        public string Name { get; set; }
-        public int Gain { get; set; }
-
-        public int Rank { get; set; }
-
-        public Defect(string name, int gain)
+        public Defect(int id, string name, int cost)
         {
+            ID = id;
             Name = name;
-            Gain = gain;
+            Value = cost;
         }
     }
 }

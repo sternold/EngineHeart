@@ -6,17 +6,13 @@ using System.Threading.Tasks;
 
 namespace EngineHeart.Data
 {
-    public class Feature : IPart
+    public class Feature : Part
     {
-        public string Name { get; set; }
-        public int Cost { get; set; }
-
-        public int Rank { get; set; }
-
-        public Feature(string name, int cost)
+        public Feature(int id, string name, int cost)
         {
+            ID = id;
             Name = name;
-            Cost = -1 * cost;
+            Value = -1 * cost;
         }
     }
 }

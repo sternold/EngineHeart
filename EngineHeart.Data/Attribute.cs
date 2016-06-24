@@ -8,8 +8,6 @@ namespace EngineHeart.Data
 {
     public class Attribute
     {
-        static Random r = new Random(151434);
-
         public string Name { get; set; }
         public int Value { get; private set; }
         
@@ -23,7 +21,7 @@ namespace EngineHeart.Data
             return $"{Name}: {Value}";
         }
 
-        public int GenerateValue()
+        public int GenerateValue(Random r)
         {
             Value = r.Next(1, 6);
             return ((Value*(Value+1))/2);
