@@ -9,6 +9,7 @@ namespace Controller
 {
     public class IOController
     {
+
         public IEnumerable<string[]> ReadFromCSV(string LocationPath)
         {
             IEnumerable<string> CSVoutput = Read(LocationPath);
