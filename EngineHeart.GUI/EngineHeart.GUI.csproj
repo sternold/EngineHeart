@@ -80,6 +80,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EngineHeart.Controller\EngineHeart.Controller.csproj">
+      <Project>{6d91f654-93e1-439a-aefb-78813b1680b1}</Project>
+      <Name>EngineHeart.Controller</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EngineHeart.Data\EngineHeart.Data.csproj">
       <Project>{293a870c-3763-46fb-a610-1582345d0b18}</Project>
       <Name>EngineHeart.Data</Name>

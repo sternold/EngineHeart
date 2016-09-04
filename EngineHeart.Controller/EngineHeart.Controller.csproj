@@ -43,6 +43,12 @@
     <Compile Include="IOController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EngineHeart.Data\EngineHeart.Data.csproj">
+      <Project>{293a870c-3763-46fb-a610-1582345d0b18}</Project>
+      <Name>EngineHeart.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

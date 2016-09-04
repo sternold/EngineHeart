@@ -13,7 +13,9 @@ namespace EngineHeart.Data
         public string Name { get; set; }
         public int Value { get; set; }
 
-        //Tags describe abilities of the Robot
+        ///<summary>
+        ///Contains common tags descriptive of the Part.
+        ///</summary>
         public List<string> Tags { get; set; }
 
         public int Rank { get; set; }
@@ -25,14 +27,17 @@ namespace EngineHeart.Data
             Value = cost;
         }
 
+        /// <summary>
+        /// Compares the Name value.
+        /// </summary>
         public int CompareTo(object obj)
         {
-            return ID.CompareTo(obj);
+            return Name.CompareTo(obj);
         }
 
         public override string ToString()
         {
-            return Name;
+            return $"{Name} {Rank}";
         }
     }
 }
