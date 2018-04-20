@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EngineHeart.API.Extensions;
+using EngineHeart.Database.Interfaces;
+using EngineHeart.Database.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
@@ -23,6 +26,10 @@ namespace EngineHeart.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services
+                .AddTransient<IComponentRepository, ComponentRepository>()
+                .AddTransient<IRobotRepository, RobotRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +49,7 @@ namespace EngineHeart.API
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseDatabase();
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
