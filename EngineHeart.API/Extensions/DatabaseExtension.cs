@@ -8,9 +8,9 @@ namespace EngineHeart.API.Extensions
     {
         public static void UseDatabase(this IApplicationBuilder app)
         {
-            if (!BaseRepository.DbExists)
+            if (!BaseRepository.Database.Exists)
             {
-                BaseRepository.TryCreateDatabase();
+                BaseRepository.Database.Create();
             }
         }
     }

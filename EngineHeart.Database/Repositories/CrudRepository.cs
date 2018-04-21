@@ -11,6 +11,6 @@ namespace EngineHeart.Database.Repositories
         public abstract IEnumerable<T> GetAll();
         public abstract int Insert(T entity);
         public abstract bool Update(T entity);
-        public abstract bool Delete(T entity);
+        public abstract bool Delete(int id);
     }
 }

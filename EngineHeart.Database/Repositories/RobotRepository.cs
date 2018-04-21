@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Dapper;
 using EngineHeart.Core.Models;
 using EngineHeart.Database.Interfaces;
 
@@ -6,14 +7,24 @@ namespace EngineHeart.Database.Repositories
 {
     public class RobotRepository : CrudRepository<Robot>, IRobotRepository
     {
+        private const string Table = "Robots";
+        private static string GetQuery => string.Format("SELECT * FROM {0} WHERE id = @id;", Table);
+        private static string GetAllQuery => string.Format("SELECT * FROM {0}", Table);
+        
         public override Robot Get(int id)
         {
-            throw new System.NotImplementedException();
+            using (var connection = DbConnection())
+            {
+                return connection.QuerySingle<Robot>(GetQuery, new {id = id});
+            }
         }
 
         public override IEnumerable<Robot> GetAll()
         {
-            throw new System.NotImplementedException();
+            using (var connection = DbConnection())
+            {
+                return connection.Query<Robot>(GetAllQuery);
+            }
         }
 
         public override int Insert(Robot entity)
@@ -26,7 +37,7 @@ namespace EngineHeart.Database.Repositories
             throw new System.NotImplementedException();
         }
 
-        public override bool Delete(Robot entity)
+        public override bool Delete(int id)
         {
             throw new System.NotImplementedException();
         }

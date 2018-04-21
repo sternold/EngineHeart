@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Common;
 using System.Data.SQLite;
 using System.IO;
 using System.Reflection;
@@ -8,41 +9,48 @@ namespace EngineHeart.Database.Repositories
 {
     public abstract class BaseRepository
     {
-        protected static string DbName => "db.sqlite";
-        protected static string DbFile => Environment.CurrentDirectory + "\\" + DbName;
-        protected static SQLiteConnection DbConnection() => new SQLiteConnection("Data Source=" + DbFile);
-
-        private static string SqlScripts => Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Scripts";
-        private static string SqlSchema => File.ReadAllText(SqlScripts + "\\dbschema.sql");
-        private static string SqlSeed => File.ReadAllText(SqlScripts + "\\seed.sql");
-
-        public static bool DbExists => File.Exists(DbFile);
-
-        public static void TryCreateDatabase()
+        protected SQLiteConnection DbConnection() => Database.Connection();
+        
+        public static class Database
         {
-            try
-            {
-                EnsureDatabaseDeleted();
-                SQLiteConnection.CreateFile(DbName);
+            public static string Name => "db.sqlite";
+            public static string File => Environment.CurrentDirectory + "\\" + Name;
+            public static SQLiteConnection Connection() => new SQLiteConnection("Data Source=" + Database.File);
 
-                using (var connection = DbConnection())
+            public static bool Exists => System.IO.File.Exists(Database.File);
+
+            public static void Create()
+            {
+                try
                 {
-                    connection.Open();
-                    connection.Execute(SqlSchema);
-                    connection.Execute(SqlSeed);
+                    EnsureDeleted();
+                    SQLiteConnection.CreateFile(Name);
+
+                    //Database generation scripts
+                    var sqlScripts = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Scripts";
+                    var sqlSchema = System.IO.File.ReadAllText(sqlScripts + "\\dbschema.sql");
+                    var sqlSeed = System.IO.File.ReadAllText(sqlScripts + "\\seed.sql");
+
+                    using (var connection = Connection())
+                    {
+                        connection.Open();
+                        connection.Execute(sqlSchema);
+                        connection.Execute(sqlSeed);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    EnsureDeleted();
                 }
             }
-            catch (Exception e)
-            {
-                EnsureDatabaseDeleted();
-            }
-        }
 
-        public static void EnsureDatabaseDeleted()
-        {
-            if (DbExists)
+            public static void EnsureDeleted()
             {
-                File.Delete(DbFile);
+                if (Database.Exists)
+                {
+                    System.IO.File.Delete(Database.File);
+                }
             }
         }
     }

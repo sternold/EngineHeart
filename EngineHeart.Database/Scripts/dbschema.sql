@@ -1,35 +1,37 @@
-CREATE TABLE Robot (
-	Id					int,
-	Name				varchar(255),
-	Player				varchar(255),
-	OriginalPurpose		varchar(255),
-	RealityCom			int,
-	HumanCom			int,
-	DigiCon				int,
-	MechaniCon			int,
-	Dexterity			int,
-	Mobility			int,
-	Perception			int,
-	Reflexes			int,
-	Strength			int,
-	Durability			int,
-	Buffer				int,
-	Size				int,
-	Power				int
+CREATE TABLE Robots (
+	id					        INTEGER           PRIMARY KEY,
+	name				        VARCHAR,
+	player				      VARCHAR,
+	originalpurpose		  VARCHAR,
+	realitycom			    INTEGER,
+	humancom			      INTEGER,
+	digicon				      INTEGER,
+	mechanicon			    INTEGER,
+	dexterity			      INTEGER,
+	mobility			      INTEGER,
+	perception			    INTEGER,
+	reflexes			      INTEGER,
+	strength			      INTEGER,
+	durability			    INTEGER,
+	buffer				      INTEGER,
+	size				        INTEGER,
+	power				        INTEGER
 );
 
 CREATE TABLE Components (
-    Id					int,
-	Type				int,
-	Name				varchar(255),
-	Value				int,
-	Description			varchar(255),
-	Rated				int
+  id					        INTEGER           PRIMARY KEY,
+	type				        INTEGER           NOT NULL,
+	name				        VARCHAR           NOT NULL UNIQUE,
+	value				        INTEGER           NOT NULL,
+	description			    VARCHAR           NOT NULL,
+	rated				        BIT               NOT NULL
 );
 
 CREATE TABLE RobotComponents (
-	Id					int,
-	RobotId				int,
-	ComponentId			int,
-	Rating				int
+	id					        INTEGER           PRIMARY KEY,
+	robotid				      INTEGER           NOT NULL,
+	componentid			    INTEGER           NOT NULL,
+	rating				      INTEGER,
+	FOREIGN KEY(robotid) REFERENCES Robots(id),
+	FOREIGN KEY(componentid) REFERENCES Components(id)
 );
