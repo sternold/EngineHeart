@@ -12,5 +12,11 @@ namespace EngineHeart.API.Controllers
         {
             
         }
+        
+        [HttpDelete("{id}")]
+        public override IActionResult Delete(int id)
+        {
+            return Unauthorized();
+        }
     }
 }

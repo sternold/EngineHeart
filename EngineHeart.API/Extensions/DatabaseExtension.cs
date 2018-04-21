@@ -1,5 +1,4 @@
-﻿using System.IO;
-using EngineHeart.Database.Repositories;
+﻿using EngineHeart.Database.Context;
 using Microsoft.AspNetCore.Builder;
 
 namespace EngineHeart.API.Extensions
@@ -8,9 +7,9 @@ namespace EngineHeart.API.Extensions
     {
         public static void UseDatabase(this IApplicationBuilder app)
         {
-            if (!BaseRepository.Database.Exists)
+            if (!DatabaseContext.Exists)
             {
-                BaseRepository.Database.Create();
+                DatabaseContext.Create();
             }
         }
     }

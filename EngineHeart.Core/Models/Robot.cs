@@ -85,11 +85,11 @@ namespace EngineHeart.Core.Models
             }
         }
 
-        public HashSet<RobotComponent> Components { get; set; }
+        public IEnumerable<RobotComponent> Components { get; set; }
 
         public Robot()
         {
-            Components = new HashSet<RobotComponent>();
+            Components = new List<RobotComponent>();
         }
     }
 }
