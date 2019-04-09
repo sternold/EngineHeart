@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Dapper;
-using EngineHeart.Core.Models;
+using EngineHeart.Core.Entity;
 using EngineHeart.Database.Interfaces;
 
 namespace EngineHeart.Database.Repositories
@@ -42,7 +42,7 @@ namespace EngineHeart.Database.Repositories
             {
                 var result = connection.QuerySingle<Robot>(GetQuery, new {id = id});
                 result.Components =
-                    connection.Query<RobotComponent, Component, RobotComponent>(GetChildrenQuery,
+                    connection.Query<Component, ComponentInfo, Component>(GetChildrenQuery,
                         (rcomponent, component) =>
                         {
                             rcomponent.Component = component;
@@ -60,7 +60,7 @@ namespace EngineHeart.Database.Repositories
                 foreach (var result in connection.Query<Robot>(GetAllQuery).Distinct())
                 {
                     result.Components =
-                        connection.Query<RobotComponent, Component, RobotComponent>(GetChildrenQuery,
+                        connection.Query<Component, ComponentInfo, Component>(GetChildrenQuery,
                             (rcomponent, component) =>
                             {
                                 rcomponent.Component = component;

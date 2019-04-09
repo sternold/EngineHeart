@@ -1,11 +1,11 @@
 ﻿using EngineHeart.Core.Interfaces;
 
-namespace EngineHeart.Core.Models
+namespace EngineHeart.Core.Entity
 {
-    public class RobotComponent : IModel
+    public class Component : IEntity
     {
         public int Id { get; set; }
-        public Component Component { get; set; }
+        public ComponentInfo ComponentInfo { get; set; }
         public int Rating { get; set; }
     }
 }

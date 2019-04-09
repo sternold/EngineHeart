@@ -5,7 +5,7 @@ using EngineHeart.Database.Interfaces;
 namespace EngineHeart.Database.Repositories
 {
     public abstract class CrudRepository<T> : BaseRepository, ICrudRepository<T>
-        where T : class, IModel
+        where T : class, IEntity
     {
         public abstract T Get(int id);
         public abstract IEnumerable<T> GetAll();
