@@ -8,11 +8,11 @@ namespace EngineHeart.Database.Context
 {
     public static class DatabaseContext
     {
-        public static string Name => "db.sqlite";
+        public const string Name = "db.sqlite";
         public static string File => Environment.CurrentDirectory + "\\" + Name;
-        public static SQLiteConnection Connection() => new SQLiteConnection("Data Source=" + DatabaseContext.File);
 
         public static bool Exists => System.IO.File.Exists(DatabaseContext.File);
+        public static SQLiteConnection Connection() => new SQLiteConnection("Data Source=" + DatabaseContext.File);
 
         public static void Create()
         {
@@ -37,7 +37,7 @@ namespace EngineHeart.Database.Context
             {
                 Console.WriteLine(e);
                 EnsureDeleted();
-                throw e;
+                throw;
             }
         }
 
