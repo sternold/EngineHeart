@@ -7,5 +7,10 @@ namespace EngineHeart.Core.Entity
         public int Id { get; set; }
         public ComponentInfo ComponentInfo { get; set; }
         public int Rating { get; set; }
+
+        public override string ToString()
+        {
+            return $"{ComponentInfo} [{Rating}]";
+        }
     }
 }

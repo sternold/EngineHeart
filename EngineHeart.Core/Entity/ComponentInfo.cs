@@ -16,5 +16,10 @@ namespace EngineHeart.Core.Entity
         public int Value { get; set; }
         public string Description { get; set; }
         public bool Rated { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

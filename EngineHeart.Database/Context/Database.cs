@@ -16,26 +16,42 @@ namespace EngineHeart.Database.Context
 
         public static void Create()
         {
+            EnsureDeleted();
+            GetSqlScripts(out string sqlSchema, out string sqlSeed);
+            GenerateDb(sqlSchema, sqlSeed);
+        }
+
+        public static void CreateIfNotExist()
+        {
+            if (!DatabaseContext.Exists)
+            {
+                GetSqlScripts(out string sqlSchema, out string sqlSeed);
+                GenerateDb(sqlSchema, sqlSeed);
+            }
+        }
+
+        private static void GetSqlScripts(out string schema, out string seed)
+        {
+            var sqlScripts = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Scripts";
+            schema = System.IO.File.ReadAllText(sqlScripts + "\\dbschema.sql");
+            seed = System.IO.File.ReadAllText(sqlScripts + "\\seed.sql");
+        }
+
+        private static void GenerateDb(string schema, string seed = "")
+        {
             try
             {
-                EnsureDeleted();
                 SQLiteConnection.CreateFile(Name);
-
-                //Database generation scripts
-                var sqlScripts = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Scripts";
-                var sqlSchema = System.IO.File.ReadAllText(sqlScripts + "\\dbschema.sql");
-                var sqlSeed = System.IO.File.ReadAllText(sqlScripts + "\\seed.sql");
-
                 using (var connection = Connection())
                 {
                     connection.Open();
-                    connection.Execute(sqlSchema);
-                    connection.Execute(sqlSeed);
+                    connection.Execute(schema);
+                    connection.Execute(seed);
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine(e);
+                Console.WriteLine(ex);
                 EnsureDeleted();
                 throw;
             }

@@ -3,12 +3,15 @@
         xmlns:vm="clr-namespace:EngineHeart.App.ViewModels;assembly=EngineHeart.App"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="EngineHeart.App.Views.MainWindow"
         Title="Engine Heart Character Creator">
-
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
+
+  <StackPanel Margin="18" Spacing="4" Width="200">
     <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <DropDown Items="{Binding Items}"/>
+  </StackPanel>
 </Window>
