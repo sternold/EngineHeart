@@ -6,7 +6,7 @@ using System.Reactive;
 
 namespace EngineHeart.App.ViewModels
 {
-    public class MainWindowViewModel : ViewModelBase
+    public class MainViewModel : ViewModelBase
     {
         private ComponentRepository _componentRepository;
 
@@ -16,11 +16,11 @@ namespace EngineHeart.App.ViewModels
         public ObservableCollection<Component> InstalledFeatures { get; set; }
         public ObservableCollection<Component> InstalledDefects { get; set; }
 
-        public MainWindowViewModel() : this(new ComponentRepository())
+        public MainViewModel() : this(new ComponentRepository())
         {
         }
 
-        public MainWindowViewModel(ComponentRepository componentRepository)
+        public MainViewModel(ComponentRepository componentRepository)
         {
             _componentRepository = componentRepository;
             ComponentInfos = new ObservableCollection<ComponentInfo>(_componentRepository.GetAll());

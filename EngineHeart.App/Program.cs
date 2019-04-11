@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Logging.Serilog;
 using EngineHeart.App.ViewModels;
-using EngineHeart.App.Views;
+using EngineHeart.App.Windows;
 using EngineHeart.Database.Context;
 
 namespace EngineHeart.App
@@ -21,7 +21,7 @@ namespace EngineHeart.App
             DatabaseContext.Create();
             var window = new MainWindow
             {
-                DataContext = new MainWindowViewModel(),
+                DataContext = new MainViewModel(),
             };
             app.Run(window);
         }

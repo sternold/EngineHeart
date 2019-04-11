@@ -1,13 +1,12 @@
-﻿<Window xmlns="https://github.com/avaloniaui" MinWidth="320" MinHeight="480"
+﻿<UserControl xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="clr-namespace:EngineHeart.App.ViewModels;assembly=EngineHeart.App"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        x:Class="EngineHeart.App.Views.MainWindow"   
-        Title="Engine Heart Character Creator">
+        xmlns:viewmodels="clr-namespace:EngineHeart.App.ViewModels;assembly=EngineHeart.App"
+        x:Class="EngineHeart.App.Views.MainView">
   
   <Design.DataContext>
-        <vm:MainWindowViewModel/>
+        <viewmodels:MainViewModel/>
   </Design.DataContext>
   
   <TabControl>
@@ -32,7 +31,7 @@
           <Button Content="Add" Command="{Binding AddCommand}" Width="128" Margin="4"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-          <ListBox Items="{Binding InstalledFeatures}" Height="128" Width="256" HorizontalAlignment="Left" Margin="8" >
+          <ListBox Items="{Binding InstalledFeatures}" Height="128" Width="300" HorizontalAlignment="Left" Margin="10" >
             <ListBox.ItemTemplate>
               <DataTemplate>
                 <StackPanel>
@@ -41,7 +40,7 @@
               </DataTemplate>
             </ListBox.ItemTemplate>
           </ListBox>
-          <ListBox Items="{Binding InstalledDefects}" Height="128" Width="256" HorizontalAlignment="Left" Margin="8" >
+          <ListBox Items="{Binding InstalledDefects}" Height="128" Width="300" HorizontalAlignment="Right" Margin="10" >
             <ListBox.ItemTemplate>
               <DataTemplate>
                 <StackPanel>
@@ -54,4 +53,4 @@
       </StackPanel>
     </TabItem>
   </TabControl>
-</Window>
+</UserControl>

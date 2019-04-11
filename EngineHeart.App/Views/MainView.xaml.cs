@@ -1,17 +1,13 @@
-﻿using Avalonia;
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
 namespace EngineHeart.App.Views
 {
-    public class MainWindow : Window
+    public class MainView : UserControl
     {
-        public MainWindow()
+        public MainView()
         {
             InitializeComponent();
-            #if DEBUG
-            this.AttachDevTools();
-            #endif
         }
 
         private void InitializeComponent()
