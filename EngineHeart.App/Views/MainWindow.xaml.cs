@@ -9,9 +9,9 @@ namespace EngineHeart.App.Views
         public MainWindow()
         {
             InitializeComponent();
-#if DEBUG
+            #if DEBUG
             this.AttachDevTools();
-#endif
+            #endif
         }
 
         private void InitializeComponent()

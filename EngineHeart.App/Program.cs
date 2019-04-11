@@ -12,6 +12,7 @@ namespace EngineHeart.App
 
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<AvaloniaApp>()
+                .UseReactiveUI()
                 .UsePlatformDetect()
                 .LogToDebug();
 

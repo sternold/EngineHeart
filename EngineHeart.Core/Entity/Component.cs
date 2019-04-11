@@ -1,16 +1,8 @@
-﻿using EngineHeart.Core.Interfaces;
-
-namespace EngineHeart.Core.Entity
+﻿namespace EngineHeart.Core.Entity
 {
-    public class Component : IEntity
+    public class Component : Base.Entity
     {
-        public int Id { get; set; }
         public ComponentInfo ComponentInfo { get; set; }
         public int Rating { get; set; }
-
-        public override string ToString()
-        {
-            return $"{ComponentInfo} [{Rating}]";
-        }
     }
 }

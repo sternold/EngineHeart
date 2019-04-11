@@ -1,17 +1,57 @@
-﻿<Window xmlns="https://github.com/avaloniaui"
+﻿<Window xmlns="https://github.com/avaloniaui" MinWidth="320" MinHeight="480"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="clr-namespace:EngineHeart.App.ViewModels;assembly=EngineHeart.App"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="EngineHeart.App.Views.MainWindow"
+        x:Class="EngineHeart.App.Views.MainWindow"   
         Title="Engine Heart Character Creator">
-    <Design.DataContext>
+  
+  <Design.DataContext>
         <vm:MainWindowViewModel/>
-    </Design.DataContext>
-
-  <StackPanel Margin="18" Spacing="4" Width="200">
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    <DropDown Items="{Binding Items}"/>
-  </StackPanel>
+  </Design.DataContext>
+  
+  <TabControl>
+    <TabItem Header="Info">
+      <StackPanel/>
+    </TabItem>
+    <TabItem Header="Attributes">
+      <StackPanel/>
+    </TabItem>
+    <TabItem Header="Components">
+      <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal">
+          <DropDown Items="{Binding ComponentInfos}" SelectedItem="{Binding SelectedComponentInfo}" Width="256" Margin="8">
+            <DropDown.ItemTemplate>
+              <DataTemplate>
+                <StackPanel>
+                  <TextBlock Text="{Binding Name}" FontSize="12" />
+                </StackPanel>
+              </DataTemplate>
+            </DropDown.ItemTemplate>
+          </DropDown>
+          <Button Content="Add" Command="{Binding AddCommand}" Width="128" Margin="4"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <ListBox Items="{Binding InstalledFeatures}" Height="128" Width="256" HorizontalAlignment="Left" Margin="8" >
+            <ListBox.ItemTemplate>
+              <DataTemplate>
+                <StackPanel>
+                  <TextBlock Text="{Binding ComponentInfo.Name}" FontSize="12" />
+                </StackPanel>
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </ListBox>
+          <ListBox Items="{Binding InstalledDefects}" Height="128" Width="256" HorizontalAlignment="Left" Margin="8" >
+            <ListBox.ItemTemplate>
+              <DataTemplate>
+                <StackPanel>
+                  <TextBlock Text="{Binding ComponentInfo.Name}" FontSize="12" />
+                </StackPanel>
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </ListBox>
+        </StackPanel>
+      </StackPanel>
+    </TabItem>
+  </TabControl>
 </Window>

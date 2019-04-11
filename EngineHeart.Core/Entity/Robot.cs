@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using EngineHeart.Core.Interfaces;
+using System.Collections.ObjectModel;
 
 namespace EngineHeart.Core.Entity
 {
-    public class Robot : IEntity
+    public class Robot : Base.Entity
     {
         #region Robot Info
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Player { get; set; }
         public string OriginalPurpose { get; set; }
@@ -58,7 +57,7 @@ namespace EngineHeart.Core.Entity
         #endregion
 
         #region Components
-        public IEnumerable<Component> Components { get; set; }
+        public IList<Component> Components { get; set; }
         #endregion
 
         public Robot()
