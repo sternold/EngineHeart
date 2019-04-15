@@ -8,7 +8,7 @@ namespace EngineHeart.Database.Repositories.Base
         protected static SQLiteConnection DbConnection() => DatabaseContext.Connection();
         protected abstract string Table { get; }
 
-        protected string GetQuery => string.Format("SELECT * FROM {0} WHERE id = @id;", Table);
-        protected string GetAllQuery => string.Format("SELECT * FROM {0}", Table);
+        protected string GetQuery => $"SELECT * FROM {Table} WHERE id = @id;";
+        protected string GetAllQuery => $"SELECT * FROM {Table}";
     }
 }

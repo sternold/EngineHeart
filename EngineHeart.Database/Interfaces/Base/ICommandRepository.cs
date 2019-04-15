@@ -1,6 +1,6 @@
 ﻿namespace EngineHeart.Database.Interfaces.Base
 {
-    public interface ICommandRepository<T>
+    public interface ICommandRepository<in T>
     {
         int Insert(T entity);
         bool Update(T entity);

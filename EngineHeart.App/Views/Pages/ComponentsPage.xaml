@@ -1,0 +1,48 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodels="clr-namespace:EngineHeart.App.ViewModels;assembly=EngineHeart.App"
+             x:Class="EngineHeart.App.Views.Pages.ComponentsPage">
+    <Design.DataContext>
+        <viewmodels:MainViewModel/>
+    </Design.DataContext>
+
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal">
+            <DropDown Items="{Binding ComponentInfos}" SelectedItem="{Binding SelectedComponentInfo}" Width="256"
+                      Margin="8">
+                <DropDown.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}" FontSize="12" />
+                        </StackPanel>
+                    </DataTemplate>
+                </DropDown.ItemTemplate>
+            </DropDown>
+            <Button Content="Add" Command="{Binding AddCommand}" Width="128" Margin="4" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <ListBox Items="{Binding Robot.Components}" Height="128" Width="300" HorizontalAlignment="Left"
+                     Margin="10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding ComponentInfo.Name}" FontSize="12" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <ListBox Items="{Binding Robot.Components}" Height="128" Width="300" HorizontalAlignment="Right"
+                     Margin="10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding ComponentInfo.Name}" FontSize="12" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

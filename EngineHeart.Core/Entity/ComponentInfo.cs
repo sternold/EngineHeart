@@ -6,8 +6,8 @@ namespace EngineHeart.Core.Entity
     {
         public enum ComponentType
         {
-            FEATURE,
-            DEFECT
+            Feature,
+            Defect
         }
 
         public ComponentType Type { get; set; }
