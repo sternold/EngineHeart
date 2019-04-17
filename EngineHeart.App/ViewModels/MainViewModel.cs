@@ -8,7 +8,7 @@ using EngineHeart.App.Models;
 
 namespace EngineHeart.App.ViewModels
 {
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : Base.ViewModelBase
     {
         public ICollection<ComponentInfo> ComponentInfos { get; set; }
         public ComponentInfo SelectedComponentInfo { get; set; }
@@ -20,8 +20,8 @@ namespace EngineHeart.App.ViewModels
 
         public MainViewModel(ComponentRepository componentRepository)
         {
-            ComponentInfos = new ObservableCollection<ComponentInfo>(componentRepository.GetAll());
             Robot = new ReactiveRobot();
+            ComponentInfos = new ObservableCollection<ComponentInfo>(componentRepository.GetAll());
             AddCommand = ReactiveCommand.Create(() 
                 => Robot.Components.Add(new Component { ComponentInfo = SelectedComponentInfo }));
         }

@@ -50,7 +50,7 @@ namespace EngineHeart.Database.Context
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.Error.WriteLine(ex);
                 EnsureDeleted();
                 throw;
             }
@@ -58,10 +58,7 @@ namespace EngineHeart.Database.Context
 
         public static void EnsureDeleted()
         {
-            if (DatabaseContext.Exists)
-            {
-                System.IO.File.Delete(DatabaseContext.File);
-            }
+            if (DatabaseContext.Exists) System.IO.File.Delete(DatabaseContext.File);
         }
     }
 }
