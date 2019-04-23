@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EngineHeart.App.Web.Shared\EngineHeart.App.Web.Shared.csproj" />
+    <ProjectReference Include="..\EngineHeart.Core\EngineHeart.Core.csproj" />
   </ItemGroup>
 
 </Project>

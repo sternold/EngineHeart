@@ -9,11 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineHeart.Database", "Eng
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineHeart.App.Desktop", "EngineHeart.App.Desktop\EngineHeart.App.Desktop.csproj", "{12F0D5A4-43D5-4706-B6D8-6FC895411CE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineHeart.App.Web.Server", "EngineHeart.App.Web.Server\EngineHeart.App.Web.Server.csproj", "{B730732C-B133-4947-B98F-A79F857F8EDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineHeart.App.Web.Server", "EngineHeart.App.Web.Server\EngineHeart.App.Web.Server.csproj", "{B730732C-B133-4947-B98F-A79F857F8EDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineHeart.App.Web.Client", "EngineHeart.App.Web.Client\EngineHeart.App.Web.Client.csproj", "{9CD2AE87-8228-4269-9C12-DC7511BA32B5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineHeart.App.Web.Shared", "EngineHeart.App.Web.Shared\EngineHeart.App.Web.Shared.csproj", "{FF911C56-9E5B-4B67-B3EC-EDA5E5348ABC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EngineHeart.App.Web.Client", "EngineHeart.App.Web.Client\EngineHeart.App.Web.Client.csproj", "{9CD2AE87-8228-4269-9C12-DC7511BA32B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,18 +83,6 @@ Global
 		{9CD2AE87-8228-4269-9C12-DC7511BA32B5}.Release|x64.Build.0 = Release|Any CPU
 		{9CD2AE87-8228-4269-9C12-DC7511BA32B5}.Release|x86.ActiveCfg = Release|Any CPU
 		{9CD2AE87-8228-4269-9C12-DC7511BA32B5}.Release|x86.Build.0 = Release|Any CPU
-		{FF911C56-9E5B-4B67-B3EC-EDA5E5348ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF911C56-9E5B-4B67-B3EC-EDA5E5348ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF911C56-9E5B-4B67-B3EC-EDA5E5348ABC}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{FF911C56-9E5B-4B67-B3EC-EDA5E5348ABC}.Debug|x64.Build.0 = Debug|Any CPU
-		{FF911C56-9E5B-4B67-B3EC-EDA5E5348ABC}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{FF911C56-9E5B-4B67-B3EC-EDA5E5348ABC}.Debug|x86.Build.0 = Debug|Any CPU
-		{FF911C56-9E5B-4B67-B3EC-EDA5E5348ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF911C56-9E5B-4B67-B3EC-EDA5E5348ABC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF911C56-9E5B-4B67-B3EC-EDA5E5348ABC}.Release|x64.ActiveCfg = Release|Any CPU
-		{FF911C56-9E5B-4B67-B3EC-EDA5E5348ABC}.Release|x64.Build.0 = Release|Any CPU
-		{FF911C56-9E5B-4B67-B3EC-EDA5E5348ABC}.Release|x86.ActiveCfg = Release|Any CPU
-		{FF911C56-9E5B-4B67-B3EC-EDA5E5348ABC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

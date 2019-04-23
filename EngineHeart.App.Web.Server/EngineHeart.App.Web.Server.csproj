@@ -16,7 +16,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EngineHeart.App.Web.Client\EngineHeart.App.Web.Client.csproj" />
-    <ProjectReference Include="..\EngineHeart.App.Web.Shared\EngineHeart.App.Web.Shared.csproj" />
+    <ProjectReference Include="..\EngineHeart.Core\EngineHeart.Core.csproj" />
+    <ProjectReference Include="..\EngineHeart.Database\EngineHeart.Database.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
