@@ -1,10 +1,10 @@
-@page "/fetchdata"
-@using EngineHeart.App.Web.App.Services
-@inject WeatherForecastService ForecastService
+﻿@page "/fetchdata"
+@using EngineHeart.App.Web.Shared
+@inject HttpClient Http
 
 <h1>Weather forecast</h1>
 
-<p>This component demonstrates fetching data from a service.</p>
+<p>This component demonstrates fetching data from the server.</p>
 
 @if (forecasts == null)
 {
@@ -40,6 +40,6 @@ else
 
     protected override async Task OnInitAsync()
     {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        forecasts = await Http.GetJsonAsync<WeatherForecast[]>("api/SampleData/WeatherForecasts");
     }
 }
